@@ -1,1 +1,1041 @@
-<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=/favicon.ico><title>sk8hd 🛹</title><link href=/js/about.f7406ada.js rel=prefetch><link href=/css/app.1c18dc93.css rel=preload as=style><link href=/css/chunk-vendors.cccc0e3c.css rel=preload as=style><link href=/js/app.736e7b22.js rel=preload as=script><link href=/js/chunk-vendors.9151f800.js rel=preload as=script><link href=/css/chunk-vendors.cccc0e3c.css rel=stylesheet><link href=/css/app.1c18dc93.css rel=stylesheet></head><body><noscript><strong>We're sorry but sk8hd doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script src=/js/chunk-vendors.9151f800.js></script><script src=/js/app.736e7b22.js></script></body></html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heidelberg Skateboarding e.V. 🛹🦄</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --turquoise: #7fffd4;
+      --turquoise-dark: #00ced1;
+      --purple: #da70d6;
+      --purple-dark: #9b59b6;
+      --pink: #ffb6c1;
+      --hot-pink: #ff69b4;
+      --lavender: #e6d0ff;
+      --mint: #c8ffe8;
+      --bg-dark: #1a0533;
+      --bg-mid: #2d1b4e;
+      --text-light: #f0e6ff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image:
+        linear-gradient(rgba(127,255,212,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(127,255,212,0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+      color: var(--text-light);
+      font-family: 'VT323', monospace;
+      font-size: 1.2rem;
+      overflow-x: hidden;
+    }
+
+    /* ===== SCANLINES ===== */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0,0,0,0.07) 0px,
+        rgba(0,0,0,0.07) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ===== RAINBOW TEXT ===== */
+    .rainbow-text {
+      background: linear-gradient(90deg,
+        #ff9ff3, #ffeaa7, #7fffd4, #a29bfe, #fd79a8, #74b9ff, #55efc4);
+      background-size: 300% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: rainbow-shift 3s linear infinite;
+      
+    }
+    @keyframes rainbow-shift {
+      0%   { background-position: 0% center; }
+      100% { background-position: 300% center; }
+    }
+
+    /* ===== BLINK ===== */
+    .blink {
+      animation: blinky 1s step-start infinite;
+    }
+    @keyframes blinky {
+      50% { opacity: 0; }
+    }
+
+    /* ===== PIXEL BORDER ===== */
+    .pixel-box {
+      border: 4px solid;
+      border-image: repeating-linear-gradient(
+        90deg,
+        var(--turquoise) 0px,
+        var(--turquoise) 8px,
+        var(--purple) 8px,
+        var(--purple) 16px,
+        var(--hot-pink) 16px,
+        var(--hot-pink) 24px
+      ) 4;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(135deg, var(--bg-mid) 0%, #3d1268 50%, var(--bg-mid) 100%);
+      border-bottom: 4px solid var(--turquoise);
+      padding: 1.5rem 0 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '🛹 ✨ 🌈 ✨ 🛹 ✨ 🌈 ✨ 🛹 ✨ 🌈 ✨ 🛹 ✨ 🌈 ✨ 🛹 ✨ 🌈';
+      display: block;
+      font-size: 1.5rem;
+      letter-spacing: 0.5rem;
+      animation: float-icons 20s linear infinite;
+      white-space: nowrap;
+      margin-bottom: 0.5rem;
+    }
+    @keyframes float-icons {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .site-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(1rem, 3vw, 2rem);
+      line-height: 1.6;
+      filter:
+        drop-shadow(3px 3px 0 var(--purple-dark))
+        drop-shadow(6px 6px 0 rgba(0,0,0,0.4));
+      padding: 0.5rem 1rem;
+    }
+    .site-subtitle {
+      font-size: 1.4rem;
+      color: var(--turquoise);
+      margin: 0.25rem 0 1rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* ===== MARQUEE BAR ===== */
+    .marquee-bar {
+      background: linear-gradient(90deg, var(--purple-dark), var(--turquoise-dark), var(--purple-dark));
+      padding: 6px 0;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.7rem;
+      color: white;
+      overflow: hidden;
+    }
+    marquee { display: block; }
+
+    /* ===== PIXEL RAINBOW DIVIDER ===== */
+    .rainbow-divider {
+      height: 8px;
+      background: linear-gradient(90deg,
+        #ff0080, #ff69b4, #ffa0f0, #c8aaff, #7fffd4, #00ced1, #7fffd4, #c8aaff, #ffa0f0, #ff69b4, #ff0080);
+      background-size: 200% auto;
+      animation: rainbow-shift 4s linear infinite;
+      image-rendering: pixelated;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      background: rgba(29,10,60,0.95);
+      border-bottom: 2px solid var(--purple);
+      padding: 0.5rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.55rem;
+      color: var(--turquoise);
+      text-decoration: none;
+      margin: 0 0.7rem;
+      padding: 0.3rem 0.5rem;
+      border: 2px solid transparent;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    nav a:hover {
+      border-color: var(--turquoise);
+      color: var(--pink);
+      text-shadow: 0 0 8px var(--turquoise);
+      transform: scale(1.1);
+    }
+
+    /* ===== HERO CAROUSEL ===== */
+    #hero {
+      position: relative;
+      width: 100%;
+      height: 70vh;
+      min-height: 400px;
+      overflow: hidden;
+      background: #000;
+    }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+    }
+    .hero-slide.active { opacity: 1; }
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.1) brightness(0.85);
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(26,5,51,0.2) 0%,
+        rgba(26,5,51,0.0) 40%,
+        rgba(26,5,51,0.7) 100%
+      );
+      display: flex;
+      align-items: flex-end;
+      padding: 2rem;
+    }
+    .hero-caption {
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(0.8rem, 2vw, 1.4rem);
+      color: white;
+      text-shadow: 2px 2px 0 var(--purple-dark), 0 0 20px rgba(127,255,212,0.5);
+    }
+    .hero-dots {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      display: flex;
+      gap: 8px;
+    }
+    .hero-dot {
+      width: 12px; height: 12px;
+      background: rgba(255,255,255,0.4);
+      border: 2px solid var(--turquoise);
+      cursor: pointer;
+      image-rendering: pixelated;
+      transition: background 0.3s;
+    }
+    .hero-dot.active { background: var(--turquoise); }
+    .hero-arrow {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      background: rgba(155,89,182,0.6);
+      border: 2px solid var(--turquoise);
+      color: white;
+      font-size: 1.5rem;
+      padding: 0.5rem 0.8rem;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.2s;
+    }
+    .hero-arrow:hover { background: rgba(127,255,212,0.3); }
+    .hero-arrow.left { left: 1rem; }
+    .hero-arrow.right { right: 1rem; }
+
+    /* ===== SECTIONS ===== */
+    section {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(0.9rem, 2.5vw, 1.3rem);
+      color: var(--turquoise);
+      filter:
+        drop-shadow(3px 3px 0 var(--purple-dark))
+        drop-shadow(6px 6px 0 rgba(0,0,0,0.4));
+              margin-bottom: 1.5rem;
+      text-align: center;
+      padding-bottom: 0.5rem;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--turquoise), var(--purple), var(--hot-pink), transparent);
+      margin-top: 0.7rem;
+    }
+
+    /* ===== ABOUT CARD ===== */
+    .about-card {
+      background: linear-gradient(135deg, rgba(45,27,78,0.9), rgba(29,10,60,0.95));
+      border: 2px solid var(--purple);
+      border-radius: 0;
+      padding: 1.8rem;
+      position: relative;
+      box-shadow: 6px 6px 0 var(--purple-dark), inset 0 0 30px rgba(127,255,212,0.03);
+    }
+    .about-card::before {
+      content: '🦄';
+      position: absolute;
+      top: -1rem; left: 1rem;
+      font-size: 2rem;
+    }
+    .about-card::after {
+      content: '🛹';
+      position: absolute;
+      top: -1rem; right: 1rem;
+      font-size: 2rem;
+    }
+    .about-card p {
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+      color: var(--lavender);
+    }
+    .about-card p:last-child { margin-bottom: 0; }
+
+    .motto {
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(0.7rem, 1.8vw, 1rem);
+      text-align: center;
+      padding: 1.2rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, rgba(218,112,214,0.15), rgba(127,255,212,0.15));
+      border-left: 4px solid var(--hot-pink);
+      border-right: 4px solid var(--turquoise);
+    }
+
+    /* ===== GOALS ===== */
+    .goals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+    }
+    .goal-item {
+      background: linear-gradient(135deg, rgba(45,27,78,0.9), rgba(60,20,100,0.8));
+      border: 2px solid var(--turquoise-dark);
+      padding: 1.2rem;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .goal-item:hover {
+      transform: translateY(-4px) translateX(-2px);
+      box-shadow: 4px 4px 0 var(--turquoise);
+    }
+    .goal-item::before {
+      content: '▶';
+      color: var(--hot-pink);
+      margin-right: 0.5rem;
+    }
+    .goal-item { font-size: 1.15rem; line-height: 1.5; color: var(--mint); }
+
+    /* ===== EVENTS ===== */
+    .events-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    @media (max-width: 600px) { .events-columns { grid-template-columns: 1fr; } }
+
+    .events-col h3 {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.7rem;
+      color: var(--hot-pink);
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 0 var(--purple-dark);
+    }
+    .event-item {
+      background: rgba(45,27,78,0.7);
+      border-left: 4px solid var(--purple);
+      padding: 0.7rem 1rem;
+      margin-bottom: 0.7rem;
+      font-size: 1.15rem;
+      line-height: 1.5;
+      color: var(--lavender);
+      transition: border-color 0.2s;
+    }
+    .event-item:hover { border-color: var(--turquoise); }
+    .event-item strong {
+      color: var(--turquoise);
+      display: block;
+      font-family: 'VT323', monospace;
+      font-size: 1.3rem;
+    }
+    .event-item a {
+      color: var(--hot-pink);
+      text-decoration: underline dotted;
+    }
+
+    .vorhaben-item {
+      background: linear-gradient(90deg, rgba(127,255,212,0.1), rgba(218,112,214,0.1));
+      border: 2px dashed var(--turquoise);
+      padding: 0.8rem 1.2rem;
+      margin-bottom: 0.7rem;
+      font-size: 1.2rem;
+      color: var(--mint);
+    }
+    .vorhaben-item::before { content: '⭐ '; }
+
+    /* ===== POSTER CAROUSEL ===== */
+    #poster-carousel-section {
+      max-width: 100%;
+      padding: 0;
+    }
+    .poster-carousel-wrapper {
+      position: relative;
+      background: linear-gradient(135deg, var(--bg-mid), #3d1268);
+      border-top: 4px solid var(--purple);
+      border-bottom: 4px solid var(--turquoise);
+      padding: 2rem 0;
+    }
+    .poster-carousel-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(0.8rem, 2vw, 1.2rem);
+      color: var(--purple);
+      text-shadow: 2px 2px 0 var(--turquoise-dark);
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .poster-track-container {
+      overflow: hidden;
+      width: 100%;
+    }
+    .poster-track {
+      display: flex;
+      gap: 1.5rem;
+      padding: 0 1.5rem;
+      transition: transform 0.5s ease;
+    }
+    .poster-slide {
+      flex: 0 0 auto;
+      width: clamp(180px, 25vw, 280px);
+      border: 3px solid var(--purple);
+      overflow: hidden;
+      background: #000;
+      transition: transform 0.3s, border-color 0.3s;
+      cursor: pointer;
+    }
+    .poster-slide:hover {
+      transform: scale(1.05);
+      border-color: var(--turquoise);
+      box-shadow: 0 0 15px rgba(127,255,212,0.4);
+    }
+    .poster-slide img {
+      width: 100%;
+      height: clamp(220px, 35vw, 360px);
+      object-fit: cover;
+      display: block;
+      filter: saturate(1.1);
+    }
+    .poster-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+    .poster-btn {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.6rem;
+      background: rgba(155,89,182,0.4);
+      border: 2px solid var(--turquoise);
+      color: var(--turquoise);
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .poster-btn:hover {
+      background: rgba(127,255,212,0.2);
+      color: white;
+    }
+
+    /* ===== LIGHTBOX ===== */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10,0,26,0.95);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border: 3px solid var(--turquoise);
+      box-shadow: 0 0 40px rgba(127,255,212,0.3);
+    }
+    #lightbox-close {
+      position: absolute;
+      top: 1rem; right: 1.5rem;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1rem;
+      color: var(--hot-pink);
+      cursor: pointer;
+      background: none;
+      border: 2px solid var(--hot-pink);
+      padding: 0.3rem 0.6rem;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact-card {
+      background: linear-gradient(135deg, rgba(45,27,78,0.95), rgba(29,10,60,0.95));
+      border: 3px solid var(--turquoise);
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 8px 8px 0 var(--purple-dark);
+      position: relative;
+    }
+    .contact-card::before {
+      content: '✨🛹✨🦄✨🛹✨🦄✨🛹✨';
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.3rem;
+    }
+    .contact-item {
+      font-size: 1.35rem;
+      margin: 0.8rem 0;
+      color: var(--mint);
+    }
+    .contact-item a {
+      color: var(--hot-pink);
+      text-decoration: none;
+      border-bottom: 2px dotted var(--purple);
+      transition: color 0.2s;
+    }
+    .contact-item a:hover { color: var(--turquoise); }
+    .contact-highlight {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.65rem;
+      color: var(--turquoise);
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+
+    /* ===== LINKS / DOCS ===== */
+    .docs-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    .doc-link {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.6rem;
+      background: linear-gradient(135deg, var(--purple-dark), var(--turquoise-dark));
+      color: white;
+      text-decoration: none;
+      padding: 0.7rem 1.2rem;
+      border: 2px solid var(--turquoise);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-block;
+    }
+    .doc-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 4px 4px 0 var(--hot-pink);
+    }
+
+    /* ===== ADDRESS ===== */
+    .address-block {
+      font-size: 1.2rem;
+      color: var(--lavender);
+      text-align: center;
+      margin-top: 1.2rem;
+      line-height: 1.8;
+      border-top: 2px dotted var(--purple);
+      padding-top: 1rem;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: linear-gradient(135deg, #0d0022, #1a0533);
+      border-top: 4px solid var(--purple);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      font-size: 1rem;
+      color: var(--purple);
+    }
+    footer .pixel-heart {
+      color: var(--hot-pink);
+      animation: pulse 1s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+
+    /* ===== FLOATING STARS ===== */
+    .stars-container {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .star {
+      position: absolute;
+      width: 4px; height: 4px;
+      background: var(--turquoise);
+      image-rendering: pixelated;
+      animation: twinkle var(--dur) ease-in-out infinite var(--delay);
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.1; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.8); }
+    }
+
+    /* ===== UNICORN PIXEL ART ===== */
+    .pixel-unicorn {
+      text-align: center;
+      font-size: 4rem;
+      animation: bounce 2s ease-in-out infinite;
+      line-height: 1;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    /* ===== SPARKLE CURSOR ===== */
+    .sparkle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      font-size: 1.2rem;
+      animation: sparkle-fade 0.8s forwards;
+    }
+    @keyframes sparkle-fade {
+      0% { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(-30px) scale(0.3); }
+    }
+
+    /* ===== GLITCH EFFECT ===== */
+    .glitch {
+      position: relative;
+    }
+    .glitch::before, .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      z-index: -1;
+    }
+    .glitch::before {
+      color: var(--turquoise);
+      z-index: -1;
+      /* color: var(--turquoise); */
+      animation: glitch-1 3s infinite;
+      clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+    }
+    .glitch::after {
+      z-index: -1;
+      color: var(--hot-pink);
+      animation: glitch-2 3s infinite;
+      clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+    }
+    @keyframes glitch-1 {
+      0%,94%,100% { transform: translateX(0); }
+      95% { transform: translateX(-3px); }
+      97% { transform: translateX(3px); }
+    }
+    @keyframes glitch-2 {
+      0%,94%,100% { transform: translateX(0); }
+      95% { transform: translateX(3px); }
+      97% { transform: translateX(-3px); }
+    }
+
+    /* ===== PIXEL RAINBOW BAR (decorative) ===== */
+    .pixel-rainbow {
+      display: flex;
+      height: 16px;
+      margin: 2rem 0;
+    }
+    .pixel-rainbow span {
+      flex: 1;
+      image-rendering: pixelated;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Floating Stars Background -->
+<div class="stars-container" id="stars"></div>
+
+<!-- Lightbox -->
+<div id="lightbox">
+  <button id="lightbox-close">✕ CLOSE</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="site-title  rainbow-text" data-text="HEIDELBERG SKATEBOARDING e.V.">
+    HEIDELBERG SKATEBOARDING e.V.
+  </div>
+  <div class="site-subtitle">🛹 Skateboard­kultur für alle 🌈</div>
+</header>
+
+<div class="marquee-bar">
+  <marquee behavior="scroll" direction="left" scrollamount="4">
+    🦄 SKATEN IST KEINE SPORTART, ES IST EINE LEBENSEINSTELLUNG &nbsp;&nbsp;&nbsp; 🌈 JEDER TRICK WIRD GEFEIERT &nbsp;&nbsp;&nbsp; 🛹 HEIDELBERG SKATEBOARDING e.V. &nbsp;&nbsp;&nbsp; ✨ ALLE SIND WILLKOMMEN &nbsp;&nbsp;&nbsp; 🏳️‍🌈 UNABHÄNGIG VON GESCHLECHT, ALTER, HAUTFARBE &nbsp;&nbsp;&nbsp; 🦄 FREITAGS @BRIDGE &nbsp;&nbsp;&nbsp; 🌟 GO SKATE! &nbsp;&nbsp;&nbsp; 💜 SKATE-HD@POSTEO.NET &nbsp;&nbsp;&nbsp; 🎪 SKATEFEST · BRIDGE KIDS · HELLONWHEELS &nbsp;&nbsp;&nbsp;
+  </marquee>
+</div>
+
+<div class="rainbow-divider"></div>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <a href="#ueber-uns">🦄 ÜBER UNS</a>
+  <a href="#ziele">🎯 ZIELE</a>
+  <a href="#events">🎪 EVENTS</a>
+  <a href="#poster">🎨 POSTER</a>
+  <a href="#kontakt">📬 KONTAKT</a>
+</nav>
+
+<!-- ===== HERO CAROUSEL ===== -->
+<div id="hero">
+  <!-- Slides injected by JS -->
+  <button class="hero-arrow left" onclick="heroMove(-1)">◀</button>
+  <button class="hero-arrow right" onclick="heroMove(1)">▶</button>
+  <div class="hero-overlay">
+    <!-- <div class="hero-caption" id="hero-caption">Heidelberg Skateboarding ✨</div> -->
+  </div>
+  <div class="hero-dots" id="hero-dots"></div>
+</div>
+
+<!-- ===== ÜBER UNS ===== -->
+<section id="ueber-uns">
+  <div class="section-title">
+    <span class="rainbow-text">🦄 ÜBER UNS 🦄</span>
+  </div>
+
+  <div class="pixel-unicorn">🛹</div>
+  <br>
+
+  <div class="about-card">
+    <div class="motto">"Der Verein ist tot, es lebe der Verein!"</div>
+
+    <p>Durch die Aufnahme in das Programm der olympischen Sommerspiele hat die Versportlichung von Skateboarding einen neuen Höhepunkt erreicht. Jedoch ist es nichts Neues, dass szenefremde Akteure (wie in diesem Fall das IOC) versuchen, Skateboarding für ihre Zwecke zu instrumentalisieren. Dabei geht jedoch immer etwas Essenzielles verloren, was Skateboarding ausmacht – seine Vielseitigkeit.</p>
+
+    <p>Egal ob auf der Straße oder in Skateparks, beim Skaten spielt niemand gegeneinander, sondern alle zusammen. Es geht darum, sich kreativ mit seiner Umwelt auseinanderzusetzen und selbstbestimmt neue Tricks zu lernen. Dabei wird jeder von den anderen unterstützt. <strong style="color: var(--turquoise)">Jeder Erfolg und jeder neue Trick, auch wenn er noch so einfach sein mag, wird gefeiert!</strong></p>
+
+    <p>Dem globalen Trend der Sportifizierung, Standardisierung und Fremdbestimmung im Skateboarding wollen wir durch die Gründung von <strong style="color: var(--hot-pink)">Heidelberg Skateboarding e.V.</strong> auf lokaler Ebene entgegenwirken. Mit diesem Verein wollen wir den Heidelberger Skater*innen Möglichkeiten zur Gestaltung der lokalen Szene eröffnen.</p>
+  </div>
+</section>
+
+<!-- Rainbow -->
+<div class="pixel-rainbow">
+  <span style="background:#ff9ff3"></span><span style="background:#ffeaa7"></span>
+  <span style="background:#7fffd4"></span><span style="background:#a29bfe"></span>
+  <span style="background:#fd79a8"></span><span style="background:#74b9ff"></span>
+  <span style="background:#55efc4"></span><span style="background:#ffeaa7"></span>
+  <span style="background:#ff9ff3"></span><span style="background:#a29bfe"></span>
+  <span style="background:#74b9ff"></span><span style="background:#fd79a8"></span>
+</div>
+
+<!-- ===== ZIELE ===== -->
+<section id="ziele">
+  <div class="section-title">
+    <span class="rainbow-text">🎯 UNSERE ZIELE 🎯</span>
+  </div>
+
+  <div class="goals-grid">
+    <div class="goal-item">
+      Förderung der Skateboardkultur in Heidelberg und Umgebung – durch Events, Contests, Skatekurse und das Zusammenkommen der Community 🎪
+    </div>
+    <div class="goal-item">
+      Kinder, Jugendliche und Erwachsene für Skateboarding begeistern 🛹
+    </div>
+    <div class="goal-item">
+      Eine positive Gemeinschaft bilden, in der sich jede*r wohlfühlt – unabhängig von Geschlecht, Alter, Hautfarbe, Muttersprache oder Meinung 🌈
+    </div>
+    <div class="goal-item">
+      Bindeglied zwischen Skatecommunity und Stadt – Einfluss auf Bau und Erhalt von Skateparks, Sprachrohr für alle Skateboard-relevanten Themen 🏙️
+    </div>
+  </div>
+</section>
+
+<!-- ===== EVENTS ===== -->
+<section id="events">
+  <div class="section-title">
+    <span class="rainbow-text">🎪 EVENTS &amp; AKTIONEN 🎪</span>
+  </div>
+
+  <div class="events-columns">
+    <div class="events-col">
+      <h3>🌟 JÄHRLICHE EVENTS</h3>
+
+      <div class="event-item">
+        <strong>🛹 SKATEFEST</strong>
+        1-Tages-Festival in Metropolink's Commissary mit Skateboarding, Musik, Kunst und Kultur
+      </div>
+      <div class="event-item">
+        <strong>🌉 BRIDGE KIDS</strong>
+        Skateboard-Contest am Skatepark unter der Ernst-Walz-Brücke
+      </div>
+      <div class="event-item">
+        <strong>☀️ GO SKATEBOARDING DAY · 21.06.</strong>
+        Verschiedene Aktionen für Skater*innen aus Heidelberg und Umgebung
+      </div>
+      <div class="event-item">
+        <strong>🎃 HELLONWHEELS</strong>
+        Halloween Skate-Session mit anschließender Party
+      </div>
+    </div>
+
+    <div class="events-col">
+      <h3>✨ WEITERE AKTIONEN</h3>
+
+      <div class="event-item">
+        <strong>🏠 HAUS DER JUGEND</strong>
+        Selbstgebaute Obstacles auf der Aktivierungsfläche für Vereinsaktivitäten
+      </div>
+      <div class="event-item">
+        <strong>📚 SKATE-WORKSHOPS</strong>
+        In Zusammenarbeit mit <a href="https://www.kulturfenster.de/programm" target="_blank">Heidelberger Kulturfenster e.V.</a> – April bis Oktober, alle 2 Wochen. Für Kinder und Jugendliche ab 6 Jahren!
+      </div>
+      <div class="event-item">
+        <strong>🎨 METROPOLINK 2020</strong>
+        „Skateboard-Straße" mit Rampen, Foto- und Kunstausstellung, Workshops
+      </div>
+      <div class="event-item">
+        <strong>🤝 BAUTZEN-AUSTAUSCH 2022</strong>
+        Skate-Austausch mit der Heidelberger Partnerstadt
+      </div>
+      <div class="event-item">
+        <strong>🎬 KASACHSTAN-DOK</strong>
+        Videoscreening und Fotoausstellung über die Skateboardszene in Kasachstan
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <div class="section-title" style="font-size: 0.8rem;">
+    <span style="color: var(--hot-pink); font-family: 'Press Start 2P', monospace; font-size: 0.75rem;">🌟 VORHABEN 🌟</span>
+  </div>
+  <div class="vorhaben-item">Anschaffung einer mobilen Miniramp für Events und Vereinsaktivitäten</div>
+  <div class="vorhaben-item">Eine Skatehalle für Heidelberg <span class="blink">🛹</span></div>
+</section>
+
+<!-- ===== POSTER CAROUSEL ===== -->
+<div id="poster-carousel-section">
+  <div class="poster-carousel-wrapper">
+    <div class="poster-carousel-title">
+      <span class="rainbow-text">🎨 POSTER &amp; FLYER 🎨</span>
+    </div>
+    <div class="poster-track-container">
+      <div class="poster-track" id="poster-track">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+    <div class="poster-nav">
+      <button class="poster-btn" onclick="posterMove(-1)">◀ ZURÜCK</button>
+      <button class="poster-btn" onclick="posterMove(1)">VOR ▶</button>
+    </div>
+  </div>
+</div>
+
+<!-- Rainbow -->
+<div class="pixel-rainbow">
+  <span style="background:#55efc4"></span><span style="background:#a29bfe"></span>
+  <span style="background:#fd79a8"></span><span style="background:#ffeaa7"></span>
+  <span style="background:#7fffd4"></span><span style="background:#ff9ff3"></span>
+  <span style="background:#74b9ff"></span><span style="background:#a29bfe"></span>
+  <span style="background:#ffeaa7"></span><span style="background:#55efc4"></span>
+  <span style="background:#fd79a8"></span><span style="background:#ff9ff3"></span>
+</div>
+
+<!-- ===== KONTAKT ===== -->
+<section id="kontakt">
+  <div class="section-title">
+    <span class="rainbow-text">📬 KONTAKT &amp; MITMACHEN 📬</span>
+  </div>
+
+  <div class="contact-card">
+    <div class="contact-item">
+      <span class="contact-highlight">📧 E-MAIL</span>
+      <a href="mailto:skate-hd@posteo.net">skate-hd@posteo.net</a>
+    </div>
+    <div class="contact-item">
+      <span class="contact-highlight">📸 INSTAGRAM</span>
+      <a href="https://www.instagram.com/heidelberg_skateboarding" target="_blank">@heidelberg_skateboarding</a>
+    </div>
+    <div class="contact-item">
+      <span class="contact-highlight">🌉 FREITAGS</span>
+      <span>@bridge – Komm einfach vorbei! 🛹</span>
+    </div>
+
+    <div class="docs-links">
+      <a class="doc-link" href="00_Beitrittserklärung Heidelberg Skateboarding.pdf" target="_blank">📝 MITGLIED WERDEN</a>
+      <a class="doc-link" href="00_Vereinssatzung Heidelberg Skateboarding e.V..pdf" target="_blank">📜 VEREINSSATZUNG</a>
+      <a class="doc-link" href="Vereinsregisterauszug_aktuell_2025.pdf" target="_blank">🏛️ VEREINSREGISTER</a>
+    </div>
+
+    <div class="address-block">
+      Heidelberg Skateboarding<br>
+      c/o Julian Laun<br>
+      Mannheimer Straße 65<br>
+      69123 Heidelberg
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <marquee behavior="alternate" scrollamount="3">
+    🦄 ✨ 🛹 Heidelberg Skateboarding e.V. – Gemeinnütziger Verein zur Förderung der Skateboardkultur 🛹 ✨ 🦄
+  </marquee>
+  <br>
+  Made with <span class="pixel-heart">♥</span> &amp; 🛹 in Heidelberg &nbsp;|&nbsp;
+  <span class="rainbow-text">skate-hd@posteo.net</span>
+  <br><br>
+  <small style="color: var(--turquoise); font-family: 'Press Start 2P', monospace; font-size: 0.45rem;">
+    BEST VIEWED AT 800×600 · NETSCAPE NAVIGATOR 4.0 · MIDI COMING SOON
+  </small>
+</footer>
+
+<script>
+  // ===== STARS =====
+  const starsContainer = document.getElementById('stars');
+  const sparkleChars = ['✦','✧','⋆','★','✨','💫'];
+  for (let i = 0; i < 60; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    star.style.left = Math.random() * 100 + 'vw';
+    star.style.top = Math.random() * 100 + 'vh';
+    star.style.setProperty('--dur', (2 + Math.random() * 4) + 's');
+    star.style.setProperty('--delay', (-Math.random() * 4) + 's');
+    const colors = ['#7fffd4','#da70d6','#ffb6c1','#ff69b4','#a29bfe'];
+    star.style.background = colors[Math.floor(Math.random() * colors.length)];
+    starsContainer.appendChild(star);
+  }
+
+  // ===== CURSOR SPARKLES =====
+  document.addEventListener('mousemove', (e) => {
+    if (Math.random() > 0.85) {
+      const s = document.createElement('div');
+      s.className = 'sparkle';
+      s.textContent = sparkleChars[Math.floor(Math.random() * sparkleChars.length)];
+      s.style.left = e.clientX + 'px';
+      s.style.top = e.clientY + 'px';
+      document.body.appendChild(s);
+      setTimeout(() => s.remove(), 800);
+    }
+  });
+
+  // ===== HERO CAROUSEL =====
+  const heroPhotos = [
+    '_DSF0516.jpg','_DSF9561 6.jpg','_DSF9570.jpg',
+    'Foto 03.11.19, 18 13 11.jpg','Foto 03.11.19, 18 16 17.jpg',
+    'Foto 10.07.20, 21 13 35.jpg','Foto 18.06.23, 13 15 02.jpg',
+    'Foto 18.06.23, 13 46 16.jpg','Foto 18.06.23, 13 50 38.jpg',
+    'Foto 18.06.23, 15 11 00.jpg','Foto 31.10.19, 20 12 16.jpg',
+    'HELL_ON_WELLS_23-1.jpg','HELL_ON_WELLS_23-49.jpg',
+    'HELL_ON_WELLS_23-52.jpg','HELL_ON_WELLS_23-60.jpg','HELL_ON_WELLS_23-67.jpg',
+    'L1000621.jpg','L1000655.jpg',
+    '_LT_Skatefest_24-179.jpg','_LT_Skatefest_24-188.jpg','_LT_Skatefest_24-189.jpg',
+    '_LT_Skatefest_24-192.jpg','_LT_Skatefest_24-224.jpg','_LT_Skatefest_24-257.jpg',
+    'photo_2026-01-25_20-27-54.jpg','photo_2026-01-25_20-33-52.jpg',
+    'PJO2fakie.jpg','Skatefest 24 5.jpg','Skatefest25 2.jpg',
+    'skatefest 25 3.jpg','Skatefest 25 4.jpg','Skatefest 25 5.jpg','Skatefest25.jpg',
+    'Wieblingen_Jam-10.jpg','Wieblingen_Jam-12.jpg'
+  ];
+
+  let heroIndex = 0;
+  const heroEl = document.getElementById('hero');
+  const dotsEl = document.getElementById('hero-dots');
+  const captionEl = document.getElementById('hero-caption');
+
+  // Build slides
+  heroPhotos.forEach((f, i) => {
+    const slide = document.createElement('div');
+    slide.className = 'hero-slide' + (i === 0 ? ' active' : '');
+    slide.innerHTML = `<img src="Fotos/${encodeURIComponent(f)}" alt="${f}">`;
+    heroEl.insertBefore(slide, heroEl.querySelector('.hero-arrow'));
+
+    const dot = document.createElement('div');
+    dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => heroGoto(i);
+    dotsEl.appendChild(dot);
+  });
+
+  function heroGoto(idx) {
+    document.querySelectorAll('.hero-slide')[heroIndex].classList.remove('active');
+    document.querySelectorAll('.hero-dot')[heroIndex].classList.remove('active');
+    heroIndex = (idx + heroPhotos.length) % heroPhotos.length;
+    document.querySelectorAll('.hero-slide')[heroIndex].classList.add('active');
+    document.querySelectorAll('.hero-dot')[heroIndex].classList.add('active');
+    // captionEl.textContent = heroPhotos[heroIndex].replace(/\.[^.]+$/, '').replace(/_/g, ' ');
+  }
+  function heroMove(dir) { heroGoto(heroIndex + dir); }
+
+  // Auto-rotate every 4 seconds
+  setInterval(() => heroMove(1), 4000);
+
+  // ===== POSTER CAROUSEL =====
+  const posterFiles = [
+    '21998189-441E-448B-94C9-1E8034D4ADAF.jpg',
+    '42ff0297-f8ff-4c54-9f4c-ce606676c5e7.jpg',
+    '863BD02E-C5D5-4325-89A6-162C969CA92A.jpg',
+    'BF287E1A-A28F-4A41-AEB7-49A4135E670D.jpg',
+    'BridgeKids2_Poster_Promo (2).jpeg',
+    'BridgeKids.jpg',
+    'eecc70b7-7f27-4784-b3ac-cecf1b8c0573.jpg',
+    'IMG_20190712_090424_272.jpg',
+    'IMG-20191022-WA0012.jpg',
+    'IMG_5326.jpg',
+    'L1000563.jpg',
+    'photo_2026-01-25_20-34-10.jpg',
+    'photo_2026-01-25_21-00-40.jpg',
+    'Wheel FINALBlack.jpg',
+    'Wheels of Fortune flyer final.jpg',
+    'Wieblingen Jam.jpg'
+  ];
+
+  const posterTrack = document.getElementById('poster-track');
+  posterFiles.forEach(f => {
+    const slide = document.createElement('div');
+    slide.className = 'poster-slide';
+    slide.innerHTML = `<img src="Poster_Flyer_VA/${encodeURIComponent(f)}" alt="${f}" loading="lazy">`;
+    slide.onclick = () => openLightbox(`Poster_Flyer_VA/${encodeURIComponent(f)}`);
+    posterTrack.appendChild(slide);
+  });
+
+  let posterOffset = 0;
+  const posterStep = () => {
+    const slideWidth = posterTrack.querySelector('.poster-slide').offsetWidth + 24; // gap
+    return slideWidth;
+  };
+  function posterMove(dir) {
+    const maxOffset = -(posterFiles.length - 3) * posterStep();
+    posterOffset = Math.max(maxOffset, Math.min(0, posterOffset - dir * posterStep()));
+    posterTrack.style.transform = `translateX(${posterOffset}px)`;
+  }
+
+  // ===== LIGHTBOX =====
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  function openLightbox(src) {
+    lightboxImg.src = src;
+    lightbox.classList.add('open');
+  }
+  document.getElementById('lightbox-close').onclick = () => lightbox.classList.remove('open');
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+</script>
+</body>
+</html>
