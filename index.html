@@ -98,7 +98,7 @@
       overflow: hidden;
     }
     header::before {
-      content: '🛹 ✨ 🌈 ✨ 🛹 ✨ 🌈 ✨ 🛹 ✨ 🌈 ✨ 🛹 ✨ 🌈 ✨ 🛹 ✨ 🌈';
+      content: '🛹 ⛓️ 🧱 ✨ 🛹 ✨ 🌈 ✨ 🛹 ⛓️ 🧱 ✨ 🛹 ✨ 🌈 ✨ 🛹 ⛓️ 🧱';
       display: block;
       font-size: 1.5rem;
       letter-spacing: 0.5rem;
@@ -286,7 +286,7 @@
       box-shadow: 6px 6px 0 var(--purple-dark), inset 0 0 30px rgba(127,255,212,0.03);
     }
     .about-card::before {
-      content: '🦄';
+      content: '🧱';
       position: absolute;
       top: -1rem; left: 1rem;
       font-size: 2rem;
@@ -388,7 +388,7 @@
     .vorhaben-item::before { content: '⭐ '; }
 
     /* ===== POSTER CAROUSEL ===== */
-    #poster-carousel-section {
+    #poster {
       max-width: 100%;
       padding: 0;
     }
@@ -433,7 +433,7 @@
     }
     .poster-slide img {
       width: 100%;
-      height: clamp(220px, 35vw, 360px);
+      aspect-ratio: 1 / 1.41421;
       object-fit: cover;
       display: block;
       filter: saturate(1.1);
@@ -499,7 +499,7 @@
       position: relative;
     }
     .contact-card::before {
-      content: '✨🛹✨🦄✨🛹✨🦄✨🛹✨';
+      content: '✨🛹✨🧱✨🛹✨🦄✨🛹✨';
       display: block;
       font-size: 1.5rem;
       margin-bottom: 1rem;
@@ -547,6 +547,43 @@
     .doc-link:hover {
       transform: translateY(-3px);
       box-shadow: 4px 4px 0 var(--hot-pink);
+    }
+
+    /* ===== CONTACT GRID ===== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    @media (max-width: 640px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    .member-card {
+      background: linear-gradient(135deg, rgba(45,27,78,0.95), rgba(29,10,60,0.95));
+      border: 3px solid var(--hot-pink);
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 8px 8px 0 var(--purple-dark);
+      position: relative;
+    }
+    .member-card::before {
+      content: '🛹✨🦄✨🛹✨🦄✨🛹';
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.3rem;
+    }
+    .member-card-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.7rem;
+      color: var(--hot-pink);
+      margin-bottom: 1.2rem;
+    }
+    .member-card-text {
+      font-size: 1.25rem;
+      color: var(--lavender);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
     }
 
     /* ===== ADDRESS ===== */
@@ -691,7 +728,7 @@
 
 <div class="marquee-bar">
   <marquee behavior="scroll" direction="left" scrollamount="4">
-    🦄 SKATEN IST KEINE SPORTART, ES IST EINE LEBENSEINSTELLUNG &nbsp;&nbsp;&nbsp; 🌈 JEDER TRICK WIRD GEFEIERT &nbsp;&nbsp;&nbsp; 🛹 HEIDELBERG SKATEBOARDING e.V. &nbsp;&nbsp;&nbsp; ✨ ALLE SIND WILLKOMMEN &nbsp;&nbsp;&nbsp; 🏳️‍🌈 UNABHÄNGIG VON GESCHLECHT, ALTER, HAUTFARBE &nbsp;&nbsp;&nbsp; 🦄 FREITAGS @BRIDGE &nbsp;&nbsp;&nbsp; 🌟 GO SKATE! &nbsp;&nbsp;&nbsp; 💜 SKATE-HD@POSTEO.NET &nbsp;&nbsp;&nbsp; 🎪 SKATEFEST · BRIDGE KIDS · HELLONWHEELS &nbsp;&nbsp;&nbsp;
+    ⛓️ SKATEN IST KEINE SPORTART, ES IST EINE LEBENSEINSTELLUNG &nbsp;&nbsp;&nbsp; 🌈 JEDER TRICK WIRD GEFEIERT &nbsp;&nbsp;&nbsp; 🛹 HEIDELBERG SKATEBOARDING e.V. &nbsp;&nbsp;&nbsp; ✨ ALLE SIND WILLKOMMEN &nbsp;&nbsp;&nbsp; 🏳️‍🌈 UNABHÄNGIG VON GESCHLECHT, ALTER, HAUTFARBE &nbsp;&nbsp;&nbsp; 🦄 FREITAGS @BRIDGE &nbsp;&nbsp;&nbsp; 🌟 GO SKATE! &nbsp;&nbsp;&nbsp; 💜 SKATE-HD@POSTEO.NET &nbsp;&nbsp;&nbsp; 🎪 SKATEFEST · BRIDGE KIDS · HELLONWHEELS &nbsp;&nbsp;&nbsp;
   </marquee>
 </div>
 
@@ -699,7 +736,7 @@
 
 <!-- ===== NAV ===== -->
 <nav>
-  <a href="#ueber-uns">🦄 ÜBER UNS</a>
+  <a href="#ueber-uns">🧱 ÜBER UNS</a>
   <a href="#ziele">🎯 ZIELE</a>
   <a href="#events">🎪 EVENTS</a>
   <a href="#poster">🎨 POSTER</a>
@@ -720,14 +757,14 @@
 <!-- ===== ÜBER UNS ===== -->
 <section id="ueber-uns">
   <div class="section-title">
-    <span class="rainbow-text">🦄 ÜBER UNS 🦄</span>
+    <span class="rainbow-text">⛓️ ÜBER UNS 🦄</span>
   </div>
 
   <div class="pixel-unicorn">🛹</div>
   <br>
 
   <div class="about-card">
-    <div class="motto">"Der Verein ist tot, es lebe der Verein!"</div>
+    <div class="motto">Der Verein ist tot, es lebe der Verein!</div>
 
     <p>Durch die Aufnahme in das Programm der olympischen Sommerspiele hat die Versportlichung von Skateboarding einen neuen Höhepunkt erreicht. Jedoch ist es nichts Neues, dass szenefremde Akteure (wie in diesem Fall das IOC) versuchen, Skateboarding für ihre Zwecke zu instrumentalisieren. Dabei geht jedoch immer etwas Essenzielles verloren, was Skateboarding ausmacht – seine Vielseitigkeit.</p>
 
@@ -832,7 +869,7 @@
 </section>
 
 <!-- ===== POSTER CAROUSEL ===== -->
-<div id="poster-carousel-section">
+<div id="poster">
   <div class="poster-carousel-wrapper">
     <div class="poster-carousel-title">
       <span class="rainbow-text">🎨 POSTER &amp; FLYER 🎨</span>
@@ -865,31 +902,41 @@
     <span class="rainbow-text">📬 KONTAKT &amp; MITMACHEN 📬</span>
   </div>
 
-  <div class="contact-card">
-    <div class="contact-item">
-      <span class="contact-highlight">📧 E-MAIL</span>
-      <a href="mailto:skate-hd@posteo.net">skate-hd@posteo.net</a>
-    </div>
-    <div class="contact-item">
-      <span class="contact-highlight">📸 INSTAGRAM</span>
-      <a href="https://www.instagram.com/heidelberg_skateboarding" target="_blank">@heidelberg_skateboarding</a>
-    </div>
-    <div class="contact-item">
-      <span class="contact-highlight">🌉 FREITAGS</span>
-      <span>@bridge – Komm einfach vorbei! 🛹</span>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-item">
+        <span class="contact-highlight">📧 E-MAIL</span>
+        <a href="mailto:skate-hd@posteo.net">skate-hd@posteo.net</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-highlight">📸 INSTAGRAM</span>
+        <a href="https://www.instagram.com/heidelberg_skateboarding" target="_blank">@heidelberg_skateboarding</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-highlight">🌉 FREITAGS</span>
+        <span>@bridge – Komm einfach vorbei! 🛹</span>
+      </div>
+
+      <div class="docs-links">
+        <a class="doc-link" href="00_Vereinssatzung Heidelberg Skateboarding e.V..pdf" target="_blank">📜 VEREINSSATZUNG</a>
+      </div>
+
+      <div class="address-block">
+        Heidelberg Skateboarding<br>
+        c/o Julian Laun<br>
+        Mannheimer Straße 65<br>
+        69123 Heidelberg
+      </div>
     </div>
 
-    <div class="docs-links">
-      <a class="doc-link" href="00_Beitrittserklärung Heidelberg Skateboarding.pdf" target="_blank">📝 MITGLIED WERDEN</a>
-      <a class="doc-link" href="00_Vereinssatzung Heidelberg Skateboarding e.V..pdf" target="_blank">📜 VEREINSSATZUNG</a>
-      <a class="doc-link" href="Vereinsregisterauszug_aktuell_2025.pdf" target="_blank">🏛️ VEREINSREGISTER</a>
-    </div>
-
-    <div class="address-block">
-      Heidelberg Skateboarding<br>
-      c/o Julian Laun<br>
-      Mannheimer Straße 65<br>
-      69123 Heidelberg
+    <div class="member-card">
+      <div class="member-card-title">🛹 MITGLIED WERDEN</div>
+      <div class="member-card-text">
+        Du willst Mitglied werden? Fülle den Mitgliedsantrag aus und schicke ihn per E-Mail an skate-hd@posteo.net oder per Post. Du kannst den Mitgliedsantrag auch persönlich bei einem unserer Veranstaltungen ausfüllen &amp; abgeben.
+      </div>
+      <div class="docs-links">
+        <a class="doc-link" href="00_Beitrittserklärung Heidelberg Skateboarding.pdf" target="_blank">📝 MITGLIEDSANTRAG</a>
+      </div>
     </div>
   </div>
 </section>
@@ -897,7 +944,7 @@
 <!-- ===== FOOTER ===== -->
 <footer>
   <marquee behavior="alternate" scrollamount="3">
-    🦄 ✨ 🛹 Heidelberg Skateboarding e.V. – Gemeinnütziger Verein zur Förderung der Skateboardkultur 🛹 ✨ 🦄
+    ⛓️ ✨ 🛹 Heidelberg Skateboarding e.V. – Gemeinnütziger Verein zur Förderung der Skateboardkultur 🛹 ✨ 🦄
   </marquee>
   <br>
   Made with <span class="pixel-heart">♥</span> &amp; 🛹 in Heidelberg &nbsp;|&nbsp;
