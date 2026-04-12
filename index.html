@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Heidelberg Skateboarding e.V. 🛹🦄</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323:wght@400&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -248,6 +250,16 @@
     .hero-arrow:hover { background: rgba(127,255,212,0.3); }
     .hero-arrow.left { left: 1rem; }
     .hero-arrow.right { right: 1rem; }
+    .hero-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: clamp(200px, 50%, 600px);
+      z-index: 10;
+      pointer-events: none;
+      filter: drop-shadow(0 2px 12px rgba(0,0,0,0.7));
+    }
 
     /* ===== SECTIONS ===== */
     section {
@@ -457,6 +469,26 @@
     .poster-btn:hover {
       background: rgba(127,255,212,0.2);
       color: white;
+    }
+
+    /* ===== POSTER — MOBILE NATIVE SCROLL ===== */
+    @media (max-width: 700px) {
+      .poster-track-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+      }
+      .poster-track-container::-webkit-scrollbar { display: none; }
+      .poster-track {
+        transition: none;
+        padding: 0 1rem;
+      }
+      .poster-slide {
+        scroll-snap-align: start;
+        width: clamp(160px, 70vw, 240px);
+      }
+      .poster-nav { display: none; }
     }
 
     /* ===== LIGHTBOX ===== */
@@ -748,6 +780,7 @@
   <!-- Slides injected by JS -->
   <button class="hero-arrow left" onclick="heroMove(-1)">◀</button>
   <button class="hero-arrow right" onclick="heroMove(1)">▶</button>
+  <img src="logo_schrift.png" alt="Heidelberg Skateboarding" class="hero-logo">
   <div class="hero-overlay">
     <!-- <div class="hero-caption" id="hero-caption">Heidelberg Skateboarding ✨</div> -->
   </div>
@@ -1048,6 +1081,8 @@
     'L1000563.jpg',
     'photo_2026-01-25_20-34-10.jpg',
     'photo_2026-01-25_21-00-40.jpg',
+    'photo_2026-04-10_10-25-07.jpg',
+    'photo_2026-04-10_10-25-53.jpg',
     'Wheel FINALBlack.jpg',
     'Wheels of Fortune flyer final.jpg',
     'Wieblingen Jam.jpg'
@@ -1068,6 +1103,7 @@
     return slideWidth;
   };
   function posterMove(dir) {
+    if (window.innerWidth <= 700) return; // native scroll on mobile
     const maxOffset = -(posterFiles.length - 3) * posterStep();
     posterOffset = Math.max(maxOffset, Math.min(0, posterOffset - dir * posterStep()));
     posterTrack.style.transform = `translateX(${posterOffset}px)`;

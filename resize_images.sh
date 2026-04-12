@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Resize images in Fotos/ and Poster_Flyer_VA/ to a max of ~1MB
-# Uses ImageMagick. Skips files already under 1MB.
+# Resize images in Fotos/ and Poster_Flyer_VA/ to a max of ~500KB
+# Uses ImageMagick. Skips files already under 500KB.
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-MAX_BYTES=$((1024 * 1024))  # 1MB
+MAX_BYTES=$((500 * 1024))   # 500KB
 MAX_DIM=1920                 # max width or height in pixels
 
 total=0
@@ -35,7 +35,7 @@ while IFS= read -r -d '' file; do
         # Resize dimensions first, then target file size via quality
         convert "$file" \
             -resize "${MAX_DIM}x${MAX_DIM}>" \
-            -define jpeg:extent=1000kb \
+            -define jpeg:extent=480kb \
             "$file"
     else
         # PNG/WebP: resize dimensions and reduce quality
@@ -55,4 +55,4 @@ done < <(find "$SCRIPT_DIR/Fotos" "$SCRIPT_DIR/Poster_Flyer_VA" \
     -print0)
 
 echo ""
-echo "Done. $total images found, $resized resized, $skipped already under 1MB."
+echo "Done. $total images found, $resized resized, $skipped already under 500KB."
