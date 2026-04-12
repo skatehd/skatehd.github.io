@@ -3,9 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Heidelberg Skateboarding e.V. 🛹🦄</title>
+  <title>Heidelberg Skateboarding e.V. – Skateboardkultur in Heidelberg</title>
+  <meta name="description" content="Heidelberg Skateboarding e.V. – Gemeinnütziger Verein zur Förderung der Skateboardkultur in Heidelberg. Events, Workshops, Contests und Community für alle Skater*innen.">
+  <meta name="keywords" content="Skateboarding Heidelberg, Skatepark Heidelberg, Skateverein Heidelberg, Skatefest, Bridge Kids, Skate-Workshops, Heidelberg Skateboarding">
+  <meta name="author" content="Heidelberg Skateboarding e.V.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://skatehd.github.io/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://skatehd.github.io/">
+  <meta property="og:title" content="Heidelberg Skateboarding e.V. – Skateboardkultur in Heidelberg">
+  <meta property="og:description" content="Gemeinnütziger Verein zur Förderung der Skateboardkultur in Heidelberg. Events, Workshops, Contests und Community für alle Skater*innen.">
+  <meta property="og:image" content="https://skatehd.github.io/logo_schrift.png">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="Heidelberg Skateboarding e.V.">
+
+  <!-- Twitter/X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Heidelberg Skateboarding e.V. – Skateboardkultur in Heidelberg">
+  <meta name="twitter:description" content="Gemeinnütziger Verein zur Förderung der Skateboardkultur in Heidelberg. Events, Workshops, Contests und Community für alle Skater*innen.">
+  <meta name="twitter:image" content="https://skatehd.github.io/logo_schrift.png">
+
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="manifest" href="site.webmanifest">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323:wght@400&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -621,6 +643,7 @@
     /* ===== ADDRESS ===== */
     .address-block {
       font-size: 1.2rem;
+      font-style: normal;
       color: var(--lavender);
       text-align: center;
       margin-top: 1.2rem;
@@ -738,6 +761,28 @@
       image-rendering: pixelated;
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsOrganization",
+    "name": "Heidelberg Skateboarding e.V.",
+    "url": "https://skatehd.github.io/",
+    "logo": "https://skatehd.github.io/logo_schrift.png",
+    "description": "Gemeinnütziger Verein zur Förderung der Skateboardkultur in Heidelberg",
+    "sport": "Skateboarding",
+    "email": "skate-hd@posteo.net",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Mannheimer Straße 65",
+      "addressLocality": "Heidelberg",
+      "postalCode": "69123",
+      "addressCountry": "DE"
+    },
+    "sameAs": [
+      "https://www.instagram.com/heidelberg_skateboarding"
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -752,9 +797,9 @@
 
 <!-- ===== HEADER ===== -->
 <header>
-  <div class="site-title  rainbow-text" data-text="HEIDELBERG SKATEBOARDING e.V.">
+  <h1 class="site-title rainbow-text" data-text="HEIDELBERG SKATEBOARDING e.V.">
     HEIDELBERG SKATEBOARDING e.V.
-  </div>
+  </h1>
   <div class="site-subtitle">🛹 Skateboard­kultur für alle 🌈</div>
 </header>
 
@@ -787,6 +832,7 @@
   <div class="hero-dots" id="hero-dots"></div>
 </div>
 
+<main>
 <!-- ===== ÜBER UNS ===== -->
 <section id="ueber-uns">
   <div class="section-title">
@@ -954,12 +1000,12 @@
         <a class="doc-link" href="00_Vereinssatzung Heidelberg Skateboarding e.V..pdf" target="_blank">📜 VEREINSSATZUNG</a>
       </div>
 
-      <div class="address-block">
+      <address class="address-block">
         Heidelberg Skateboarding<br>
         c/o Julian Laun<br>
         Mannheimer Straße 65<br>
         69123 Heidelberg
-      </div>
+      </address>
     </div>
 
     <div class="member-card">
@@ -973,6 +1019,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- ===== FOOTER ===== -->
 <footer>
