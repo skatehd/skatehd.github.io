@@ -56,11 +56,6 @@ while IFS= read -r -d '' file; do
     base="$(basename "${file%.*}")"
 
     for w in "${SIZES[@]}"; do
-        # Don't upscale
-        if (( orig_width < w )); then
-            continue
-        fi
-
         out="${dir}/${base}-${w}.webp"
 
         # Skip if up to date
